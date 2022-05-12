@@ -1,0 +1,761 @@
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+.u-btn {
+  /*display: inline-block;*/
+  display: table;
+  /*TODO maye need another solution for negative marin*/
+  cursor: pointer;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+  border: 0 none transparent;
+  outline-width: 0;
+  background-color: transparent;
+  margin: 0;
+  -webkit-text-decoration-skip: objects;
+  font-style: initial;
+  white-space: nowrap;
+  -webkit-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  vertical-align: middle;
+  text-align: center;
+  padding: 10px 30px;
+  border-radius: 0;
+  align-self: flex-start;
+}
+
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.u-clearfix:after,
+.u-clearfix:before {
+  content: '';
+  display: table;
+}
+
+[class*="u-border-"].u-border-no-top {
+  border-top-width: 0;
+  border-top-style: none;
+}
+[class*="u-border-"].u-border-no-right {
+  border-right-width: 0;
+  border-right-style: none;
+}
+[class*="u-border-"].u-border-no-bottom {
+  border-bottom-width: 0;
+  border-bottom-style: none;
+}
+[class*="u-border-"].u-border-no-left {
+  border-left-width: 0;
+  border-left-style: none;
+}
+
+.u-text.u-indent-none {
+  padding-left: 0 !important;
+}
+.u-text-default {
+  display: table;
+  align-self: flex-start;
+}
+.u-text-default:empty {
+  display: block;
+  width: 15px;
+}
+@media (min-width: 1200px) {
+  .u-text-default-xl {
+    display: table;
+    align-self: flex-start;
+  }
+  .u-text-default-xl:empty {
+    display: block;
+    width: 15px;
+  }
+}
+
+.u-image,
+.u-background-effect-image,
+.u-video-poster {
+  object-fit: cover;
+  display: block;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+img.u-image,
+.u-video-poster {
+  overflow: hidden;
+}
+.u-back-image.u-image-contain,
+.u-image.u-image-contain {
+  object-fit: contain;
+  background-size: contain;
+}
+.u-back-image.u-image-tiles,
+.u-image.u-image-tiles {
+  background-size: initial;
+  background-repeat: repeat;
+  background-position: top left !important;
+}
+section.u-image,
+.u-sheet.u-image,
+.u-group.u-image,
+.u-layout-cell.u-image {
+  overflow: visible;
+}
+.u-text .u-image {
+  display: inline-block;
+}
+.u-post-content .u-image {
+  margin-bottom: 0.5rem;
+}
+.u-image-circle.u-image {
+  border-radius: 50% !important;
+}
+.u-image-square {
+  border-radius: 0;
+}
+[data-post-link],
+[data-href] {
+  cursor: pointer;
+}
+.u-sheet {
+  position: relative;
+  width: 1140px;
+  margin: 0 auto;
+}
+
+
+/*Ширина изображения в АК-12*/
+.u-expanded {
+  position: absolute !important;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.u-expanded-width {
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+
+
+/*Размер изображения в АК-12*/
+.u-layout-row > .u-size-30 {
+  flex: 0 0 50%;
+  max-width: 50%;
+  min-width: 50%;
+}
+.u-layout-col > .u-size-30 {
+  flex: 30 0 50%;
+}
+
+/*Футер расположение ссылок*/
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .u-layout-col > * {
+    flex-basis: auto !important;
+  }
+}
+.u-layout-col,
+.u-layout-row,
+.u-layout-col > * {
+  display: flex;
+}
+.u-layout-col,
+.u-layout-row {
+  flex: 1 1 100%;
+}
+
+/*Расположение серого фона на АК-12 под 02*/
+.u-layout-cell {
+  position: relative;
+  display: flex;
+  background-clip: padding-box;
+  background-origin: padding-box;
+}
+.u-sheet:not(.u-image):not(.u-video) {
+  pointer-events: none;
+}
+/*Чтобы сайт нормально работал*/
+.u-sheet:not(.u-image):not(.u-video) > * {
+  pointer-events: auto;
+  pointer-events: initial;
+}
+
+.u-menu,
+.u-popupmenu-items {
+  display: table;
+  white-space: nowrap;
+  position: relative;
+  line-height: 1;
+}
+
+/*Начало шапки (оформления)*/
+.u-nav,
+.u-nav-item {
+  position: relative;
+}
+.u-nav {
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.u-nav-item {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+/* Вот до сюда :) и там еще снизу*/
+
+/*Расстояние между ссылками в шапке страницы*/
+.u-spacing-30:not(.u-text) > li:not(:last-child) {
+  margin-right: 30px;
+}
+
+
+.u-nav-link {
+  display: block;
+  white-space: nowrap;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+  border: 0 none transparent;
+  outline-width: 0;
+  background-color: transparent;
+  margin: 0;
+  -webkit-text-decoration-skip: objects;
+}
+
+
+/*Шапка*/
+.menu-collapse {
+  display: none;
+  border: none;
+  z-index: 1;
+}
+
+.u-nav-container-collapse {
+  display: none;
+  z-index: 1001;
+  left: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  position: fixed !important;
+  overflow: hidden;
+  width: 0;
+}
+
+html {
+  font-size: 16px;
+}
+.u-body {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.u-body h1,
+.u-body h2,
+.u-body h3,
+.u-body h4,
+.u-body h5,
+.u-body h6 {
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  font-weight: 500;
+  color: inherit;
+}
+h1 {
+  font-size: 2.25rem;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 1.25rem;
+}
+h5 {
+  font-size: 1.125rem;
+}
+h6 {
+  font-size: 1.125rem;
+}
+p {
+  margin-top: 0;
+  padding: 0;
+  margin-bottom: 0.5rem;
+}
+/*Выравнивание текста по левому краю и по центру*/
+.u-align-left {
+  text-align: left;
+}
+
+.u-align-center {
+  text-align: center;
+}
+
+
+/*Размещение блоков статей и новостей по 3 в колонке*/
+.u-repeater {
+  display: grid;
+  grid-template-columns: repeat(3, 33.33333333%);
+}
+
+
+/*В блоках прямые линии (отделяющие название от картинок)*/
+[class*="u-border-"],
+.u-link[class*="u-border-"] {
+  border-style: solid;
+}
+/*Выделение снизу у футера*/
+.u-border-1,
+.u-separator-1:after,
+.u-text.u-border-1,
+a.u-button-style.u-border-1 {
+  border-width: 1px;
+}
+
+/*Обводка у категорий (Синих)*/
+.u-border-2,
+.u-separator-2:after,
+.u-text.u-border-2,
+a.u-button-style.u-border-2 {
+  border-width: 2px;
+}
+/*радиус у кнопки читать большой*/
+.u-radius-18,
+.u-radius-18:before,
+.u-radius-18 .u-background-effect,
+.u-radius-18:not(.u-hover-box) > .u-container-layout {
+  border-radius: 18px !important;
+}
+/*радиус у кнопки*/
+.u-radius-25,
+.u-radius-25:before,
+.u-radius-25 .u-background-effect,
+.u-radius-25:not(.u-hover-box) > .u-container-layout {
+  border-radius: 25px !important;
+}
+/*радиус у */
+.u-radius-32,
+.u-radius-32:before,
+.u-radius-32 .u-background-effect,
+.u-radius-32:not(.u-hover-box) > .u-container-layout {
+  border-radius: 32px !important;
+}
+/*радиус у*/
+.u-radius-50,
+.u-radius-50:before,
+.u-radius-50 .u-background-effect,
+.u-radius-50:not(.u-hover-box) > .u-container-layout {
+  border-radius: 50px !important;
+}
+/*текст*/
+.u-body {
+  font-family: 'Open Sans',sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Roboto,sans-serif;
+}
+
+
+/*При наведении на текст меняется цвет текста на белый и цвет фона на синий*/
+.u-hover-palette-1-base:hover,
+.u-hover-palette-1-base[class*="u-border-"]:hover,
+.u-hover-palette-1-base:focus,
+.u-hover-palette-1-base[class*="u-border-"]:focus,
+.u-active-palette-1-base.u-active.u-active,
+.u-active-palette-1-base[class*="u-border-"].u-active.u-active,
+a.u-button-style.u-hover-palette-1-base:hover,
+a.u-button-style.u-hover-palette-1-base[class*="u-border-"]:hover,
+a.u-button-style:hover > .u-hover-palette-1-base,
+a.u-button-style:hover > .u-hover-palette-1-base[class*="u-border-"],
+a.u-button-style.u-hover-palette-1-base:focus,
+a.u-button-style.u-hover-palette-1-base[class*="u-border-"]:focus,
+a.u-button-style.u-button-style.u-active-palette-1-base:active,
+a.u-button-style.u-button-style.u-active-palette-1-base[class*="u-border-"]:active,
+a.u-button-style.u-button-style.u-active-palette-1-base.active,
+a.u-button-style.u-button-style.u-active-palette-1-base[class*="u-border-"].active,
+a.u-button-style.u-button-style.active > .u-active-palette-1-base,
+a.u-button-style.u-button-style.active > .u-active-palette-1-base[class*="u-border-"],
+li.active > a.u-button-style.u-button-style.u-active-palette-1-base,
+li.active > a.u-button-style.u-button-style.u-active-palette-1-base[class*="u-border-"] {
+  color: #ffffff !important;
+  background-color: #478ac9 !important;
+}
+
+
+/*Желтые полосы на главной странице*/
+.u-palette-3-base,
+.u-body.u-palette-3-base,
+.u-container-style.u-palette-3-base:before,
+.u-container-layout.u-palette-3-base:before,
+.u-table-alt-palette-3-base tr:nth-child(even) {
+  color: #111111;
+  background-color: #f1c50e;
+}
+
+
+
+/*Фон у статьи АК-12 под номером "01"*/
+.u-palette-5-light-2,
+.u-body.u-palette-5-light-2,
+.u-container-style.u-palette-5-light-2:before,
+.u-container-layout.u-palette-5-light-2:before,
+.u-table-alt-palette-5-light-2 tr:nth-child(even) {
+  color: #111111;
+  background-color: #e0e5eb;
+}
+
+
+/*Фон белый у статьи АК-12 белый в начале*/
+.u-white,
+.u-body.u-white,
+.u-container-style.u-white:before,
+.u-container-layout.u-white:before,
+.u-table-alt-white tr:nth-child(even) {
+  color: #111111;
+  background-color: #ffffff;
+}
+
+
+
+
+/*Фон у статьи АК-12 серый*/
+.u-grey-50,
+.u-body.u-grey-50,
+.u-container-style.u-grey-50:before,
+.u-container-layout.u-grey-50:before,
+.u-table-alt-grey-50 tr:nth-child(even) {
+  color: #ffffff;
+  background-color: #808080;
+}
+
+
+/*Фон у кнопок читать в блоках новостей и статей*/
+.u-grey-60,
+.u-body.u-grey-60,
+.u-container-style.u-grey-60:before,
+.u-container-layout.u-grey-60:before,
+.u-table-alt-grey-60 tr:nth-child(even) {
+  color: #ffffff;
+  background-color: #666666;
+}
+
+
+/*Фон у футера и "История стрелкого оружия на гл. странице"*/
+.u-grey-80,
+.u-body.u-grey-80,
+.u-container-style.u-grey-80:before,
+.u-container-layout.u-grey-80:before,
+.u-table-alt-grey-80 tr:nth-child(even) {
+  color: #ffffff;
+  background-color: #333333;
+}
+
+
+
+
+/*Цвет у кнопок категорий в Новостях и статьях*/
+.u-button-style.u-border-palette-1-base {
+  border-color: #478ac9 !important;
+  color: #478ac9 !important;
+  background-color: transparent !important;
+}
+
+
+
+/*При наведении на ссылки в меню (шапка) они подсвечиваются синим цветом*/
+.u-border-hover-palette-1-base:hover,
+.u-border-hover-palette-1-base:focus,
+.u-border-active-palette-1-base.u-active.u-active,
+a.u-button-style.u-border-hover-palette-1-base:hover,
+a.u-button-style:hover > .u-border-hover-palette-1-base,
+a.u-button-style.u-border-hover-palette-1-base:focus,
+a.u-button-style.u-button-style.u-border-active-palette-1-base:active,
+a.u-button-style.u-button-style.u-border-active-palette-1-base.active,
+a.u-button-style.u-button-style.active > .u-border-active-palette-1-base,
+li.active > a.u-button-style.u-button-style.u-border-active-palette-1-base {
+  color: #478ac9 !important;
+  border-color: #478ac9 !important;
+}
+
+
+
+/*При нажатии на ссылки в футере они светятся красным*/
+.u-border-hover-palette-2-base:hover,
+.u-border-hover-palette-2-base:focus,
+.u-border-active-palette-2-base.u-active.u-active,
+a.u-button-style.u-border-hover-palette-2-base:hover,
+a.u-button-style:hover > .u-border-hover-palette-2-base,
+a.u-button-style.u-border-hover-palette-2-base:focus,
+a.u-button-style.u-button-style.u-border-active-palette-2-base:active,
+a.u-button-style.u-button-style.u-border-active-palette-2-base.active,
+a.u-button-style.u-button-style.active > .u-border-active-palette-2-base,
+li.active > a.u-button-style.u-button-style.u-border-active-palette-2-base {
+  color: #db545a !important;
+  border-color: #db545a !important;
+}
+
+/*Подчеркивание меню в подвале*/
+.u-border-hover-white:hover,
+.u-border-hover-white:focus,
+.u-border-active-white.u-active.u-active,
+a.u-button-style.u-border-hover-white:hover,
+a.u-button-style:hover > .u-border-hover-white,
+a.u-button-style.u-border-hover-white:focus,
+a.u-button-style.u-button-style.u-border-active-white:active,
+a.u-button-style.u-button-style.u-border-active-white.active,
+a.u-button-style.u-button-style.active > .u-border-active-white,
+li.active > a.u-button-style.u-button-style.u-border-active-white {
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+
+/*Подсвечивание и подчеркивание меню в шапке*/
+.u-border-hover-grey-25:hover,
+.u-border-hover-grey-25:focus,
+.u-border-active-grey-25.u-active.u-active,
+a.u-button-style.u-border-hover-grey-25:hover,
+a.u-button-style:hover > .u-border-hover-grey-25,
+a.u-button-style.u-border-hover-grey-25:focus,
+a.u-button-style.u-button-style.u-border-active-grey-25:active,
+a.u-button-style.u-button-style.u-border-active-grey-25.active,
+a.u-button-style.u-button-style.active > .u-border-active-grey-25,
+li.active > a.u-button-style.u-button-style.u-border-active-grey-25 {
+  color: #c0c0c0 !important;
+  border-color: #c0c0c0 !important;
+}
+
+
+/*Белый текст в шапке*/
+.u-text-white,
+a.u-button-style.u-text-white,
+a.u-button-style.u-text-white[class*="u-border-"] {
+  color: #ffffff !important;
+}
+
+
+/*Белый текст на страницах*/
+.u-text-body-alt-color,
+a.u-button-style.u-text-body-alt-color,
+a.u-button-style.u-text-body-alt-color[class*="u-border-"] {
+  color: #ffffff !important;
+}
+
+
+
+/*цвет кнопки читать на главной странице*/
+
+.u-custom-color-1,
+        .u-body.u-custom-color-1,
+        .u-container-style.u-custom-color-1:before,
+        .u-container-layout.u-custom-color-1:before,
+        .u-table-alt-custom-color-1 tr:nth-child(even)
+        {
+            color: #ffffff;
+            background-color: #0c579d;
+        }
+
+        .u-button-style.u-custom-color-1,
+        .u-button-style.u-custom-color-1[class*="u-border-"]
+        {
+            color: #ffffff !important;
+            background-color: #0c579d !important;
+        }
+/* Свечение при наведении кнопки читать синим */
+        .u-button-style.u-custom-color-1:hover,
+        .u-button-style.u-custom-color-1[class*="u-border-"]:hover,
+        .u-button-style.u-custom-color-1:focus,
+        .u-button-style.u-custom-color-1[class*="u-border-"]:focus,
+        .u-button-style.u-button-style.u-custom-color-1:active,
+        .u-button-style.u-button-style.u-custom-color-1[class*="u-border-"]:active,
+        .u-button-style.u-button-style.u-custom-color-1.active,
+        .u-button-style.u-button-style.u-custom-color-1[class*="u-border-"].active,
+        li.active > .u-button-style.u-button-style.u-custom-color-1,
+        li.active > .u-button-style.u-button-style.u-custom-color-1[class*="u-border-"]
+        {
+            color: #ffffff !important;
+            background-color: #0b4e8d !important;
+        }
+/*Фон на шапке*/
+        .u-hover-custom-color-1:hover,
+        .u-hover-custom-color-1[class*="u-border-"]:hover,
+        .u-hover-custom-color-1:focus,
+        .u-hover-custom-color-1[class*="u-border-"]:focus,
+        .u-active-custom-color-1.u-active.u-active,
+        .u-active-custom-color-1[class*="u-border-"].u-active.u-active,
+        a.u-button-style.u-hover-custom-color-1:hover,
+        a.u-button-style.u-hover-custom-color-1[class*="u-border-"]:hover,
+        a.u-button-style:hover > .u-hover-custom-color-1,
+        a.u-button-style:hover > .u-hover-custom-color-1[class*="u-border-"],
+        a.u-button-style.u-hover-custom-color-1:focus,
+        a.u-button-style.u-hover-custom-color-1[class*="u-border-"]:focus,
+        a.u-button-style.u-button-style.u-active-custom-color-1:active,
+        a.u-button-style.u-button-style.u-active-custom-color-1[class*="u-border-"]:active,
+        a.u-button-style.u-button-style.u-active-custom-color-1.active,
+        a.u-button-style.u-button-style.u-active-custom-color-1[class*="u-border-"].active,
+        a.u-button-style.u-button-style.active > .u-active-custom-color-1,
+        a.u-button-style.u-button-style.active > .u-active-custom-color-1[class*="u-border-"],
+        li.active > a.u-button-style.u-button-style.u-active-custom-color-1,
+        li.active > a.u-button-style.u-button-style.u-active-custom-color-1[class*="u-border-"]
+        {
+            color: #ffffff !important;
+            background-color: #0c579d !important;
+        }
+
+
+/*шапка*/
+ .u-header {
+  background-image: linear-gradient(to right, black, #666666);
+}
+
+.u-header .u-sheet-1 {
+  min-height: 86px;
+}
+
+.u-header .u-image-1 {
+  width: 64px;
+  height: 64px;
+  margin: 11px auto 0 0;
+}
+
+.u-header .u-logo-image-1 {
+  width: 100%;
+  height: 100%;
+}
+
+.u-header .u-menu-1 {
+  margin: -50px auto 25px 86px;
+}
+
+.u-header .u-nav-1 {
+  font-size: 1rem;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: Montserrat;
+}
+
+.u-header .u-nav-2 {
+  font-size: 1.25rem;
+}
+@media (max-width: 1199px) {
+  .u-header .u-menu-1 {
+    width: auto;
+  }
+}
+
+/*Подвал*/
+.u-footer .u-container-layout-1 {
+  padding: 20px 30px;
+}
+
+.u-footer .u-btn-1 {
+  border-style: none none solid;
+  margin: 0 auto 0 0;
+  padding: 0;
+}
+
+.u-footer .u-btn-2 {
+  border-style: none none solid;
+  margin: 11px auto 0 0;
+  padding: 0;
+}
+
+.u-footer .u-btn-3 {
+  border-style: none none solid;
+  margin: 11px auto 0 0;
+  padding: 0;
+}
+
+.u-footer .u-layout-cell-2 {
+  min-height: 180px;
+}
+
+.u-footer .u-container-layout-2 {
+  padding: 20px 30px;
+}
+
+.u-footer .u-position-2 {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.u-footer .u-btn-4 {
+  border-style: none none solid;
+  margin: 0 auto 0 0;
+  padding: 0;
+}
+
+.u-footer .u-btn-5 {
+  border-style: none none solid;
+  margin: 11px auto 0 0;
+  padding: 0;
+}
+
+.u-footer .u-btn-6 {
+  border-style: none none solid;
+  margin: 11px auto 0 0;
+  padding: 0;
+}
+
+ html { font-size: 16px; }
