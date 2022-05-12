@@ -5,6 +5,6 @@ const homeRouter = express.Router();
 
 homeRouter.get("/news", homeController.news);
 homeRouter.get("/about", homeController.about);
-homeRouter.get("/", homeController.index);
+homeRouter.get("/index", homeController.index);
 
 module.exports = homeRouter;

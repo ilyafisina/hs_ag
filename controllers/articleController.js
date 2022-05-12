@@ -1,8 +1,6 @@
-exports.drob = function (request, response){
-    response.send("Статья Дробовик");
-};
+
 exports.kal = function(request, response){
-    response.send("АК-12");
+    response.render("АК-12.hbs");
 }
 const db = require('../config/db.config')
 
