@@ -1,10 +1,14 @@
 const express = require("express");
 // Подключаем контроллер для базовых запросов
-const homeController = require("../controllers/homeController.js");
-const homeRouter = express.Router();
+const Controller = require("../controllers/homeController.js");
+const Router = express.Router();
 
-homeRouter.get("/news", homeController.news);
-homeRouter.get("/about", homeController.about);
-homeRouter.get("/index", homeController.index);
+Router.use("/news", Controller.news);
+Router.use("/about", Controller.about);
+Router.use("/index", Controller.index);
+Router.use("/drop", Controller.drob);
+Router.use("/kal", Controller.kal);
+Router.use("/ts", Controller.ts);
+Router.post("/ts",Controller.request)
 
-module.exports = homeRouter;
+module.exports = Router;

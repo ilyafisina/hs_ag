@@ -2,6 +2,7 @@ const express = require("express");
 const db = require("../config/db.config");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const hbs = require('hbs');
 const app = express();
 var corsOptions = {
   origin: "http://localhost:3000"
@@ -13,7 +14,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set("views", "./views");
 
-//так добавляются стили. Путь пишется относительный относительно корня проекта
 app.use(express.static('./views/styles'));
 
 
@@ -32,12 +32,12 @@ db.sequelize
     })
 
 // Подключаем созданные роутеры
-const articleRouter = require('../routers/articleRouter')
 const homeRouter = require('../routers/homeRouter')
 
-app.use("/article", articleRouter)
 app.use("/", homeRouter)
+app.use(express.static("views/images"));  // чтобы работали изображения на сайте
 
+hbs.registerPartials('./views/partials')
 
 //А это 404 ошибка
 app.use(function (req, res, next) {

@@ -6,6 +6,14 @@ module.exports = function(sequelize) {
     type: Sequelize.STRING,
         allowNull:false
     },
+        name:{
+        type: Sequelize.STRING,
+            allowNull:false
+        },
+        phone:{
+        type: Sequelize.STRING,
+            allowNull:false
+        },
     time_of_appeal: {
     type: Sequelize.DATE,
         allowNull: false
