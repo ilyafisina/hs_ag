@@ -30,10 +30,6 @@ module.exports = function(sequelize) {
         phone_number: {
             type: Sequelize.STRING,
             allowNull:false
-        },
-        admin: {
-            type: Sequelize.BOOLEAN,
-            allowNull: false
         }
     });
 };

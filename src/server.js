@@ -4,8 +4,8 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const hbs = require('hbs');
 const app = express();
-var corsOptions = {
-  origin: "http://localhost:3000"
+const corsOptions = {
+    origin: "http://localhost:3000"
 };
 app.use(cors(corsOptions));
 
@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set("views", "./views");
-
+app.use(express.static('./views/js'));
 app.use(express.static('./views/styles'));
 
 

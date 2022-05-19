@@ -1,12 +1,12 @@
 const { Sequelize } = require("sequelize");
-const sequelize = new Sequelize("hg_ag", "root", "root", {
+const sequelize = new Sequelize("history", "root", "root", {
     dialect: "mysql",
     host: "localhost"
 });
 
 const db = {}
 db.sequelize = sequelize;
-const userDefiner = require("../model/users")
+const userDefiner = require("../model/user")
 db.users = userDefiner(sequelize)
 // db.user = require("../models/user")
 const contentDefiner = require("../model/content")

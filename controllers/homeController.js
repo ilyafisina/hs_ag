@@ -1,3 +1,4 @@
+const db = require("../config/db.config");
 exports.index = function (request, response) {
     response.render("ГЛАВНАЯ.hbs");
 };
@@ -13,24 +14,28 @@ exports.kal = function(request, response){
 exports.drob = function (request, response){
     response.render('СТАТЬЯ-ДРОБОВИК.hbs'); // Поменялось тут
 };
-exports.ts = function (request, response) {
-    response.render('ТЕХ-ПОДДЕРЖКА.hbs');
+exports.ts = function(request, response){
+    db.technical_support.findAll({raw:true}).then(data => {
+        response.render('ТЕХ-ПОДДЕРЖКА.hbs', {
+            technical_support: data //Обратите внимание, что users параметр должен называться так же как во views/users.hbs в 12 строке
+        });
+    }).catch(err=>console.log(err));
 };
-exports.request= function(request, response){
-    console.log("Ghbikb d vtnjl");
-    console.log(request.body.problem)
-    // const name = request.body.name;
-    // const birthday = request.body.birthday;
-    // const email = request.body.email;
-    // const roleId = 2;
-    // db.user.create({
-    //     name: name,
-    //     birthday: birthday,
-    //     email: email,
-    //     roleId: roleId
-    // }).then(res=>{
-    //     const user = {id: res.id, name: res.name, age: res.birthday, email: res.email}
-    //     console.log(user);
-    // }).catch(err=>console.log(err));
-    // response.redirect("/user");
+
+exports.testing= function(request, response){
+    console.log("Пришли в метод");
+    console.log(request.body.name)
+    const problems = request.body.problems;
+    const name = request.body.name;
+    const phone = request.body.phone;
+    db.technical_support.create({
+        problems:problems,
+        name: name,
+        phone: phone,
+     }).then(res=>{
+         const technical_support = {id: res.id, problems: res.problems, name: res.name, phone: res.phone }
+         console.log(technical_support);
+        response.redirect('/ts');
+     }).catch(err=>console.log(err));
+
 };
